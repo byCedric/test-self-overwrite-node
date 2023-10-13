@@ -19,10 +19,7 @@ jobs:
       matrix:
         manager: [bun, pnpm, yarn, npm]
         os: [windows, ubuntu, macos]
-        # nodeVersion: [16.x, 18.x, 20.x]
-        # manager: [bun]
-        # os: [ubuntu]
-        nodeVersion: [18.x]
+        nodeVersion: [16.x, 18.x, 20.x]
         exclude:
           - manager: bun
             os: windows
@@ -50,5 +47,17 @@ jobs:
       - name: 📦 Install project
         run: ${{ matrix.manager }} install
 
-      - name: 🧪 Test project
+      - name: 📁 Before `index.js`
+        run: cat index.js
+
+      - name: 📁 Before `helper.js`
+        run: cat helper.js
+
+      - name: 🧪 Overwrite itself
         run: ${{ matrix.manager }} run execute
+
+      - name: 📁 After `index.js`
+        run: cat index.js
+
+      - name: 📁 After `helper.js`
+        run: cat helper.js
