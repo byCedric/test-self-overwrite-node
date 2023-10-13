@@ -1,0 +1,13 @@
+{
+  "name": "test-overwrite-self",
+  "version": "0.0.0",
+  "bin": "index.js",
+  "main": "index.js",
+  "scripts": {
+    "execute": "node index.js"
+  },
+  "devDependencies": {
+    "@expo/spawn-async": "^1.7.2",
+    "@types/node": "18"
+  }
+}
